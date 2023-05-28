@@ -1,6 +1,6 @@
 *This documentation is for deploy Poke-App-Stats in local, it works in python 3.11*
 
-##1. Install lib virtualenv
+## 1. Install lib virtualenv
 `pip install virtualenv`
 
 ##2. Create virtua enviroment called env in root path:

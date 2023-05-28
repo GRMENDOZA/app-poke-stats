@@ -17,3 +17,11 @@ img {
     max-width: 600px;
     border: 1px solid #cccccc;
 }
+
+th, td {
+    color: #ffffff;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    size: 10px;
+}

@@ -16,7 +16,21 @@
         <h2>Max Growth Time: {{ max_growth_time }}</h2>
         <h2>Variance Growth Time: {{ variance_growth_time }}</h2>
         <h2>Mean Growth Time: {{ mean_growth_time }}</h2>
-        <h2>Frequency Growth Time: {{ frequency_growth_time }}</h2>
-        <img src="data:image/png;base64, {{ histogram_image }}" alt="Histogram">
+        <h2>Frequency Growth Time: </h2>
+        <table>
+            <tr>
+                <th>Growth Time</th>
+                <th>Frequency</th>
+            </tr>
+            {% for time, frequency in frequency_growth_time.items() %}
+                <tr>
+                    <td>{{ time }}</td>
+                    <td>{{ frequency }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div class="graph">
+            <img src="data:image/png;base64, {{ histogram_image }}" alt="Histogram">
+        </div>
     </body>
 </html>

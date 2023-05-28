@@ -35,5 +35,5 @@ def getErrorResponse(error):
 
 if __name__ == '__main__':
     app.register_error_handler(404, getErrorResponse)
-    app.run(host = '0.0.0.0', port = os.getenv("PORT"), debug = os.getenv("DEBUG"))
+    app.run(host = '0.0.0.0', port = int(os.getenv("PORT")), debug = os.getenv("DEBUG"))
     

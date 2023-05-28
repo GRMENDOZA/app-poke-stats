@@ -19,3 +19,7 @@
 * Api http://127.0.0.1:443/allBerryStats METHOD GET
 * Web http://127.0.0.1:443/allBerryStatsWeb METHOD GET
 
+## 7. The app is deployed in Heroku, if you want to try you can use the URL's below
+* Api https://app-poke-stats.herokuapp.com/allBerryStats METHOD GET
+* Web https://app-poke-stats.herokuapp.com/allBerryStatsWeb METHOD GET
+

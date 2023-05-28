@@ -10,7 +10,7 @@ app = Flask(__name__)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 @app.route('/allBerryStats', methods=['GET'])
-@cache.cached(timeout=os.getenv("TIME_OUT")) # Cache the response for 1 hour
+@cache.cached(timeout=int(os.getenv("TIME_OUT"))) # Cache the response for 1 hour
 def get_berry_data():
     try:
         return getData()
@@ -18,7 +18,7 @@ def get_berry_data():
         return getErrorResponse(error)
     
 @app.route('/allBerryStatsWeb', methods=['GET'])
-@cache.cached(timeout=os.getenv("TIME_OUT")) # Cache the response for 1 hour
+@cache.cached(timeout=int(os.getenv("TIME_OUT"))) # Cache the response for 1 hour
 def get_data_web():
     try:
         return render_template('graph.html', **getData('Web'))

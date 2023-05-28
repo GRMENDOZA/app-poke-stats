@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poke-Berries Statistics</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+    <style></style>
+    <body>
+        <h1>Poke-Berries Statistics</h1>
+        <h2>Berries Names: {{ berries_names | replace("'", "") | replace("[", "") | replace("]", "") }}</h2>
+        <h2>Min Growth Time: {{ min_growth_time }}</h2>
+        <h2>Median Growth Time: {{ median_growth_time }}</h2>
+        <h2>Max Growth Time: {{ max_growth_time }}</h2>
+        <h2>Variance Growth Time: {{ variance_growth_time }}</h2>
+        <h2>Mean Growth Time: {{ mean_growth_time }}</h2>
+        <h2>Frequency Growth Time: {{ frequency_growth_time }}</h2>
+        <img src="data:image/png;base64, {{ histogram_image }}" alt="Histogram">
+    </body>
+</html>

@@ -4,16 +4,16 @@
 ```pip install virtualenv```
 
 2. Create virtua enviroment called env in root path:
-virtualenv env
+```virtualenv env```
 
 3. Activate virtualenv:
-source env/bin/activate
+`source env/bin/activate`
 
 4. Install dependencies:
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 5. Run the app:
-python app.py
+```python app.py```
 
 6. Once The app is running, it expouse a web page with data and also an API with the information
 *Api http://127.0.0.1:443/allBerryStats METHOD GET

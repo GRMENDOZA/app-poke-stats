@@ -10,8 +10,8 @@ app = Flask(__name__)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 # Env Vars
-timeOut = os.getenv("TIME_OUT")
-port = os.getenv("PORT")
+timeOut = int(os.getenv("TIME_OUT"))
+port = int(os.getenv("PORT"))
 debug = os.getenv("DEBUG")
 
 @app.route('/allBerryStats', methods=['GET'])

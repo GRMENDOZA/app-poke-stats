@@ -17,5 +17,5 @@ build/
 .idea/
 docs/_build/
 .vscode
-*__pytcache__
+*/__pytcache__
 *test/pytest_cache/

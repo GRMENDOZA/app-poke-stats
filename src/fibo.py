@@ -12,19 +12,20 @@ n>=0 constraints int
 nth = (n-1) + (n-2)
 '''
 
-def fibo(nterms:int)->int:
-    n1, n2 = 0, 1
-    count = 0
-    if nterms >= 0:
-        while count < nterms:
+def fibo(n:int) -> int:
+    if isinstance(n, int) and n >= 0:
+        n1, n2 = 0, 1
+        count = 0
+
+        while count < n:
             nth = n1 + n2
             n1 = n2
             n2 = nth
             count += 1
-            if count == nterms:
-                return n1
+
+        return n1
     else:
-        return 'El número debe ser mayor a cero'
+        return 'El valor debe ser numerico'
     
 if __name__ == '__main__':
     assert fibo(3) == 2

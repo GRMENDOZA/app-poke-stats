@@ -1,9 +1,9 @@
 # *This documentation is for deploy Poke-App-Stats in local, it works in python 3.11*
 
 ## 0. Set Env Vars
-`export TIME_OUT='3600'`
-`export PORT='8081'`
-`export DEBUG='False'`
+* `export TIME_OUT='3600'`
+* `export PORT='8081'`
+* `export DEBUG='False'`
 
 ## 1. Install lib virtualenv
 `pip install virtualenv`

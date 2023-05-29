@@ -6,29 +6,34 @@ import os
 
 app = Flask(__name__)
 
-# Configure cache
-cache = Cache(app, config={'CACHE_TYPE': 'simple'})
-
 # Env Vars
 timeOut = int(os.getenv("TIME_OUT"))
 port = int(os.getenv("PORT"))
 debug = os.getenv("DEBUG")
 
+# Configure cache
+cache_config = {
+    'CACHE_TYPE': 'SimpleCache',
+    'CACHE_DEFAULT_TIMEOUT': timeOut
+}
+cache = Cache(app, config=cache_config)
+
+
 @app.route('/allBerryStats', methods=['GET'])
-@cache.cached(timeout = timeOut) # Cache the response for 1 hour
+@cache.cached(timeout = timeOut) # Cache the response
 def get_berry_data():
     try:
         return getData()
     except BaseException as error:
-        return error
+        return page_not_found(error)
     
 @app.route('/allBerryStatsWeb', methods=['GET'])
-@cache.cached(timeout = timeOut) # Cache the response for 1 hour
+@cache.cached(timeout = timeOut) # Cache the response
 def get_data_web():
     try:
         return render_template('graph.html', **getData('Web'))
-    except:
-        pass
+    except BaseException as error:
+        return page_not_found(error)
 
 @app.errorhandler(404)
 def page_not_found(e):

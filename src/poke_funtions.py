@@ -11,18 +11,34 @@ matplotlib.use('agg')
 def getData(typeResponse = 'Api'):
     #Get data from PokeAPI
     response = requests.get('https://pokeapi.co/api/v2/berry/')
-    data = response.json()
-    berries = data['results']
-    urlNextData = data['next']
 
-    # Get all the information
-    while urlNextData != None:
-        response = requests.get(urlNextData)
+    if response.status_code == 200:
         data = response.json()
-        tempBerries = data['results']
+        berries = data['results']
         urlNextData = data['next']
-        berries.extend(tempBerries)
 
+        # Get all the information
+        while urlNextData != None:
+            response = requests.get(urlNextData)
+            if response.status_code == 200:
+                data = response.json()
+                tempBerries = data['results']
+                urlNextData = data['next']
+                berries.extend(tempBerries)
+            else:
+                break
+        
+        return getDataBerries(berries, typeResponse)
+    else:
+        return Response(
+        response='El servicio no esta disponible',
+        status=400,
+        mimetype='application/json',
+        headers={'Content-Disposition': 'inline'},
+        direct_passthrough=True
+    )
+
+def getDataBerries(berries, typeResponse):
     # Get data from berries URL's
     names = []
     growthTimes = []
